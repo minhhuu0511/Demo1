@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Chieu6_Tuan3_2080600088.Models.Sach>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+<table border="1px">
+    <tr>
+        <th>Mã sach</th>
+        <th>Ma loai </th>
+        <th>Ten sach</th>
+        <th>Hinh</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.masach</td>
+            <td>@item.maloai</td>
+            <td>@item.tensach</td>
+            <td>@item.hinh</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.masach }) |
+                @Html.ActionLink("Detail", "Detail", new { id = item.masach }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.masach })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Create", "Create", "Sach")
